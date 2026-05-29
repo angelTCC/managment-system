@@ -1,36 +1,201 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Management system
 
-## Getting Started
+A platform for managing a small agricultural operation (trout farm, crops, greenhouse, chickens, etc.).
 
-First, run the development server:
+## Project Objective
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+AgroFlow is a farm management platform inspired by The Wild Oasis project from the Next.js course.
+
+Instead of building a hotel reservation system, I am adapting the same architecture and concepts to a future agricultural business. The goal is to learn modern full-stack development while building software that could eventually be used in a real farm operation.
+
+This project is focused on:
+
+- Learning Next.js through a real-world application
+- Practicing backend development and database design
+- Building software related to agriculture and automation
+- Creating a portfolio project with potential business value
+- Establishing a foundation for future AI and IoT integrations
+
+---
+
+## Core Idea
+
+The Wild Oasis manages:
+
+- Cabins
+- Guests
+- Reservations
+
+AgroFlow manages:
+
+- Production units (crops, ponds, greenhouses, etc.)
+- Users
+- Production records and farm tasks
+
+The objective is not to copy the hotel business but to reuse the same software architecture and development concepts.
+
+---
+
+## Project Analogies
+
+| The Wild Oasis | AgroFlow |
+|---------------|-----------|
+| Hotel | Farm / Agricultural Business |
+| Cabin | Crop, Pond, Greenhouse, or Production Unit |
+| Guest | User / Worker |
+| Booking | Production Record |
+| Reservation | Scheduled Farm Task |
+| Reservation Dates | Production Cycle Dates |
+| Cabin Availability | Inventory or Production Capacity |
+| Hotel Dashboard | Farm Dashboard |
+| Guest Profile | User Profile |
+| Cabin List | Production Unit List |
+| Cabin Detail | Production Unit Detail |
+| Reservation Management | Task & Production Management |
+
+---
+
+## Main Features
+
+### Dashboard
+
+- Farm overview
+- Production statistics
+- Recent activity
+
+### Inventory
+
+- Manage feed
+- Manage fertilizers
+- Manage tools and supplies
+
+### Production
+
+- Record harvests
+- Record fish production
+- Track production history
+
+### Finance
+
+- Register expenses
+- Register income
+- Profit tracking
+
+### Tasks
+
+- Feeding schedules
+- Irrigation schedules
+- Maintenance reminders
+
+### Authentication
+
+- Login
+- Logout
+- Protected routes
+
+### Profile
+
+- Update personal information
+- Manage account settings
+
+---
+
+## Planned Pages
+
+```text
+/
+Homepage
+
+/dashboard
+Farm overview
+
+/inventory
+Inventory management
+
+/production
+Production records
+
+/finance
+Expenses and income
+
+/tasks
+Farm tasks
+
+/profile
+User profile
+
+/login
+Authentication
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Initial Database Design
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```text
+Users
+Farms
+Inventory
+ProductionRecords
+Expenses
+Tasks
+```
 
-## Learn More
+Relationships:
 
-To learn more about Next.js, take a look at the following resources:
+```text
+User
+ └── Farm
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Farm
+ ├── Inventory
+ ├── ProductionRecords
+ ├── Expenses
+ └── Tasks
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Technology Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Next.js
+- React
+- Tailwind CSS
+- PostgreSQL
+- Prisma
+- Authentication (NextAuth or Better Auth)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Future Roadmap
+
+After completing the core application:
+
+- Weather API integration
+- AI-based production predictions
+- Disease detection models
+- IoT sensor integration
+- Automated alerts
+- Mobile support
+- Multi-farm SaaS version
+
+---
+
+## Learning Goals
+
+This project is primarily a learning vehicle for:
+
+- Next.js App Router
+- Server Components
+- Route Handlers
+- Authentication
+- Database design
+- ORM usage
+- Full-stack architecture
+- Clean project organization
+
+The long-term vision is to combine:
+
+Software Engineering + Agriculture + Automation + Artificial Intelligence
+
+into a real business-oriented platform.
