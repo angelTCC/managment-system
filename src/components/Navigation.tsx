@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faListCheck } from "@fortawesome/free-solid-svg-icons";
+import Inventory from "@/app/dashboard/inventory/page";
 
 interface NavLink {
   href: string;
@@ -15,32 +16,45 @@ interface NavLink {
 
 const todasLasOpciones: Record<string, NavLink> = {
   home: {
-    href: "/",
+    href: "/dashboard",
     label: "home",
     icon: faListCheck,
   },
-  about: {
-    href: "/about",
-    label: "about",
+  inventory: {
+    href: "/dashboard/inventory",
+    label: "inventory",
+    icon: faListCheck,
+  },
+  production: {
+    href: "dashboard/production",
+    label: "production",
+    icon: faListCheck,
+  },
+  profile: {
+    href: "/dashboard/profile",
+    label: "profile",
     icon: faListCheck,
   },
 };
 
 export default function Navigation() {
   // links
-  const menuItems: NavLink[] = [todasLasOpciones.home, todasLasOpciones.about];
+  const menuItems: NavLink[] = [
+    todasLasOpciones.home,
+    todasLasOpciones.inventory,
+  ];
 
   const pathname = usePathname();
 
   return (
-    <>
+    <div className="flex flex-col h-full">
       {/* ==== LOGO ==== */}
       <div style={{ background: "red" }}>
         <h1>Manager System</h1>
       </div>
 
       {/*==== NAVIGATION ==== */}
-      <nav style={{ backgroundColor: "yellow" }}>
+      <nav className="flex-1" style={{ backgroundColor: "yellow" }}>
         <ul>
           {menuItems.map((item) => {
             const isActive = pathname === item.href;
@@ -65,6 +79,11 @@ export default function Navigation() {
           })}
         </ul>
       </nav>
-    </>
+
+      {/* Bottom section */}
+      <div className="bg-red-200">
+        <button>Logout</button>
+      </div>
+    </div>
   );
 }
