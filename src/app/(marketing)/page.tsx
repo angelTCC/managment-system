@@ -6,7 +6,7 @@ export default function HomePage() {
       <h1 className="text-4xl font-bold">AgroFlow</h1>
       <p className="text-gray-600">Smart agriculture management system</p>
 
-      <Link href="/dashboard" className="px-4 py-2 bg-black text-white rounded">
+      <Link href="/login" className="px-4 py-2 bg-black text-white rounded">
         Enter Dashboard
       </Link>
     </main>

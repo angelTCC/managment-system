@@ -10,7 +10,10 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         </div>
 
         {/*==== CHILDREN ==== */}
-        <div className="flex-1 bg-red-200 m-4 p-2">{children}</div>
+        <div className="flex-1 flex flex-col bg-red-200 m-4 p-2">
+          <div className="h-12 bg-white">header</div>
+          <div className="flex-1 bg-yellow-100">{children}</div>
+        </div>
       </div>
     </>
   );

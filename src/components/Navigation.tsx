@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faListCheck } from "@fortawesome/free-solid-svg-icons";
-import Inventory from "@/app/dashboard/inventory/page";
+import { useRouter } from "next/navigation";
 
 interface NavLink {
   href: string;
@@ -17,7 +17,7 @@ interface NavLink {
 const todasLasOpciones: Record<string, NavLink> = {
   home: {
     href: "/dashboard",
-    label: "home",
+    label: "dashboard",
     icon: faListCheck,
   },
   inventory: {
@@ -26,7 +26,7 @@ const todasLasOpciones: Record<string, NavLink> = {
     icon: faListCheck,
   },
   production: {
-    href: "dashboard/production",
+    href: "/dashboard/production",
     label: "production",
     icon: faListCheck,
   },
@@ -35,14 +35,32 @@ const todasLasOpciones: Record<string, NavLink> = {
     label: "profile",
     icon: faListCheck,
   },
+  finances: {
+    href: "/dashboard/finance",
+    label: "finances",
+    icon: faListCheck,
+  },
+  tasks: {
+    href: "/dashboard/tasks",
+    label: "tasks",
+    icon: faListCheck,
+  },
 };
 
 export default function Navigation() {
-  // links
-  const menuItems: NavLink[] = [
-    todasLasOpciones.home,
-    todasLasOpciones.inventory,
+  const router = useRouter();
+
+  const menuOrder = [
+    "home",
+    "inventory",
+    "production",
+    "profile",
+    "finances",
+    "tasks",
   ];
+
+  // links
+  const menuItems: NavLink[] = menuOrder.map((key) => todasLasOpciones[key]);
 
   const pathname = usePathname();
 
@@ -82,7 +100,7 @@ export default function Navigation() {
 
       {/* Bottom section */}
       <div className="bg-red-200">
-        <button>Logout</button>
+        <button onClick={() => router.push("/login")}>Logout</button>
       </div>
     </div>
   );
